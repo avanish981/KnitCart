@@ -1,0 +1,51 @@
+{% extends 'shop/basic.html' %}
+{% block title %}Sell Your Product -Enter Details of your products{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="col my-4">
+        <h2>KnitCart Sell Your Product Here</h2>
+        <h3> Enter Details:</h3>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="">
+          <label for="inputname">Book Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="">
+          </div>
+                <div class="form-group">
+                    <label for="category">Category</label><br>
+                    <select name="category">
+                    <option value="First Year CSE" id="category"name="category">First Year CSE/IT</option>
+                    <option value="First Year CIVIL"id="category"name="category">First Year CIVIL ENGINEERING</option>
+                   <option value="First Year MECHANICAL ENGINEERING"id="category"name="category">First Year MECHANICAL ENGINEERING</option>
+                      <option value="First Year ELECTRICAL ENGINEERING"id="category"name="category">First Year ELECTRICAL ENGINEERING</option>
+                      <option value="SECOND Year CSE"id="category"name="category">SECOND Year CSE/IT</option>
+                      <option value="SECOND Year CIVIL"id="category"name="category">SECOND Year CIVIL ENGINEERING</option>
+                     <option value="SECOND Year MECHANICAL ENGINEERING"id="category"name="category">SECOND Year MECHANICAL ENGINEERING</option>
+                        <option value="SECOND Year ELECTRICAL ENGINEERING"id="category"name="category">SECOND Year ELECTRICAL ENGINEERING</option>
+                        <option value="THIRD Year CSE"id="category"name="category">THIRD Year CSE/IT</option>
+                        <option value="THIRD Year CIVIL"id="category"name="category">THIRD Year CIVIL ENGINEERING</option>
+                       <option value="THIRD Year MECHANICAL ENGINEERING"id="category"name="category">THIRD Year MECHANICAL ENGINEERING</option>
+                          <option value="THIRD Year ELECTRICAL ENGINEERING"id="category"name="category">THIRD Year ELECTRICAL ENGINEERING</option>
+                          <option value="FINAL Year CSE"id="category"name="category">FINAL Year CSE/IT</option>
+                          <option value="FINAL Year CIVIL"id="category"name="category">FINAL Year CIVIL ENGINEERING</option>
+                         <option value="FINAL Year MECHANICAL ENGINEERING"id="category"name="category">FINAL Year MECHANICAL ENGINEERING</option>
+                            <option value="FINAL Year ELECTRICAL ENGINEERING"id="category"name="category">FINAL Year ELECTRICAL ENGINEERING</option>
+                            <option value="GATE Year CSE"id="category"name="category">GATE CSE/IT</option>
+                            <option value="GATE Year CIVIL"id="category"name="category">GATE CIVIL ENGINEERING</option>
+                           <option value="GATE Year MECHANICAL ENGINEERING"id="category"name="category">GATE MECHANICAL ENGINEERING</option>
+                              <option value="GATE Year ELECTRICAL ENGINEERING"id="category"name="category">GATE ELECTRICAL ENGINEERING</option>
+                                <option value="GATE Year ELECTRICAL ENGINEERING"id="category"name="category">Porgramming</option>
+
+   </select>
+                </div>
+            <div class="form-group"enctype="multipart/form-data">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" name="price" placeholder="100">
+                <label for="desc">Description</label>
+                <input type="text" class="form-control" id="desc" name="desc" placeholder="Write few things about books">
+                <label for="image">Upload Image</label>
+                <input type="file"id="image" name="image">
+            <button type="submit" class="btn btn-primary">Sell</button>
+    </div>
+    </div>
+{% endblock %}
