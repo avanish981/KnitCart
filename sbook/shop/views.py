@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Product, Contact, Orders
 from math import ceil
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 # import the logging library
 import logging
 
@@ -39,7 +41,7 @@ def contact(request):
         email = request.POST.get('email', '')
         phone = request.POST.get('phone', '')
         desc = request.POST.get('desc', '')
-        contact = Contact(name=name, email=email, phone=phone, desc=desc)
+        contact = Contact(name=name,email=email,phone=phone, desc=desc)
         contact.save()
     return render(request, 'shop/contact.html')
 
@@ -73,3 +75,19 @@ def checkout(request):
         id = order.order_id
         return render(request, 'shop/checkout.html', {'thank':thank, 'id': id})
     return render(request, 'shop/checkout.html')
+def product(request):
+    if request.method=="POST" and request.FILES['imag']:
+        image=request.FILES['imag']
+        fs=FileSystemStorage()
+        fs.save(image.name,image)
+        image=image
+        name=request.POST.get('name','')
+        category=request.POST.get('category','')
+        price=request.POST.get('price','')
+        desc=request.POST.get('desc','')
+
+        product=Product(product_name=name,category=category,price=price,desc=desc,image=image)
+        product.save()
+        #chk=True
+
+    return render(request,'shop/sell.html')
