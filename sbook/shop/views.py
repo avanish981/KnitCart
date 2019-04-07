@@ -90,4 +90,4 @@ def product(request):
         product.save()
         #chk=True
 
-    return render(request,'shop/sell.html')
+    return render(request,'shop/product.html')
