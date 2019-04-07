@@ -3,15 +3,13 @@
 {% block body %}
 <div class="container">
     <div class="col my-4">
-        <h2>KnitCart Sell Your Product Here</h2>
+        <h2>Sell Your Product Here</h2>
         <h3> Enter Details:</h3>
-        <form method="POST">
+        <form method="POST"enctype="multipart/form-data">
           {% csrf_token %}
-          <div class="">
+          <div class="form-group">
           <label for="inputname">Book Name</label>
           <input type="text" class="form-control" id="name" name="name" placeholder="">
-          </div>
-                <div class="form-group">
                     <label for="category">Category</label><br>
                     <select name="category">
                     <option value="First Year CSE" id="category"name="category">First Year CSE/IT</option>
@@ -42,9 +40,9 @@
                 <label for="price">Price</label>
                 <input type="text" class="form-control" id="price" name="price" placeholder="100">
                 <label for="desc">Description</label>
-                <input type="text" class="form-control" id="desc" name="desc" placeholder="Write Publication,and Writer Name">
+                <input type="text" class="form-control" id="desc" name="desc" placeholder="Write few things about books">
                 <label for="image">Upload Image</label>
-                <input type="file"id="image" name="image">
+                <input type="file"id="imag" name="imag">
             <button type="submit" class="btn btn-primary">Sell</button>
     </div>
     </div>
