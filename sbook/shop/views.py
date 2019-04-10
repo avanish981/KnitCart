@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from .models import Product, Contact, Orders
+from .models import Product, Contact, Orders,Signup
+from django.shortcuts import redirect
 from math import ceil
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from django.db import connection
 # import the logging library
 import logging
 
@@ -10,6 +12,23 @@ import logging
 logger = logging.getLogger(__name__)
 # Create your views here.
 from django.http import HttpResponse
+
+
+'''print("hello world")
+with connection.cursor() as cursor:
+
+        try:
+         print("try")
+
+         cursor.execute("SELECT * FROM Product")
+         for row in cursor:
+             print(row)
+
+        except:
+
+            print("not execute")
+
+            pass'''
 
 def index(request):
     # products = Product.objects.all()
@@ -63,13 +82,10 @@ def checkout(request):
         items_json = request.POST.get('itemsJson', '')
         name = request.POST.get('name', '')
         email = request.POST.get('email', '')
-        address = request.POST.get('address1', '') + " " + request.POST.get('address2', '')
-        city = request.POST.get('city', '')
-        state = request.POST.get('state', '')
-        zip_code = request.POST.get('zip_code', '')
+        address= request.POST.get('address1', '') + " " + request.POST.get('address2', '')
+        year=request.POST.get('year','')
         phone = request.POST.get('phone', '')
-        order = Orders(items_json=items_json, name=name, email=email, address=address, city=city,
-                       state=state, zip_code=zip_code, phone=phone)
+        order = Orders(items_json=items_json, name=name, email=email,room_no=address,year=year,phone=phone)
         order.save()
         thank = True
         id = order.order_id
@@ -85,9 +101,22 @@ def product(request):
         category=request.POST.get('category','')
         price=request.POST.get('price','')
         desc=request.POST.get('desc','')
-
         product=Product(product_name=name,category=category,price=price,desc=desc,image=image)
+
         product.save()
+        sel=True
+
         #chk=True
 
     return render(request,'shop/product.html')
+def signup(request):
+    if request.method=='POST':
+        username=request.POST.get('use','')
+        email=request.POST.get('em','')
+        password=request.POST.get('pass',)
+
+        user=Signup(username=username,email=email,password=password)
+        user.save()
+        if user:
+            return redirect('/shop')
+    return render(request,'shop/signup.html')
