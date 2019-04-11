@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from .models import Product, Contact, Orders,Signup
-from django.shortcuts import redirect
+from .models import Product, Contact, Orders
 from math import ceil
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from django.db import connection
 # import the logging library
 import logging
 
@@ -12,23 +10,6 @@ import logging
 logger = logging.getLogger(__name__)
 # Create your views here.
 from django.http import HttpResponse
-
-
-'''print("hello world")
-with connection.cursor() as cursor:
-
-        try:
-         print("try")
-
-         cursor.execute("SELECT * FROM Product")
-         for row in cursor:
-             print(row)
-
-        except:
-
-            print("not execute")
-
-            pass'''
 
 def index(request):
     # products = Product.objects.all()
@@ -101,7 +82,8 @@ def product(request):
         category=request.POST.get('category','')
         price=request.POST.get('price','')
         desc=request.POST.get('desc','')
-        product=Product(product_name=name,category=category,price=price,desc=desc,image=image)
+        phone=request.POST.get('phone','')
+        product=Product(product_name=name,category=category,price=price,desc=desc,image=image,phone=phone)
 
         product.save()
         sel=True
@@ -109,14 +91,4 @@ def product(request):
         #chk=True
 
     return render(request,'shop/product.html')
-def signup(request):
-    if request.method=='POST':
-        username=request.POST.get('use','')
-        email=request.POST.get('em','')
-        password=request.POST.get('pass',)
 
-        user=Signup(username=username,email=email,password=password)
-        user.save()
-        if user:
-            return redirect('/shop')
-    return render(request,'shop/signup.html')
