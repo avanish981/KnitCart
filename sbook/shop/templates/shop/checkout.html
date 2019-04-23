@@ -1,45 +1,40 @@
 {% extends 'shop/basic.html' %}
-{% block title%} Checkout - My Awesome Cart{% endblock %}
+{% block title %} Checkout - Knit Cart{% endblock %}
 {% block body %}
 <div class="container">
-    <div class="col my-4">
-        <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
-        <div class="my-4">
-            <ul class="list-group" id="items">
-            </ul>
-        </div>
-    </div>
+    <div class="col my-4"
     <div class="col my-4">
         <h2>Step 2 - Enter Address & Other Details:</h2>
         <form method="post" action="/shop/checkout/">{% csrf_token %}
             <input type="hidden" name="itemsJson" id="itemsJson">
+            <input type="hidden" name="product" value="">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputname">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name"required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Hostel Name</label>
-                <input type="text" class="form-control" id="address1" name="address1" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="address1" name="address1" placeholder="Khosla"required>
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Room No</label>
-                <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" id="address2" name="address2" placeholder="208"required>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputCity">Year</label>
-                    <input type="text" class="form-control" id="city" name="city">
+                    <label for="year">Year</label>
+                    <input type="text" class="form-control" id="year" name="year" placeholder="third year"required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputZip">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone">
+                <input type="tel" class="form-control" id="phone" name="phone"required>
             </div>
             <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
@@ -74,7 +69,7 @@ if ($.isEmptyObject(cart)) {
 document.getElementById('cart').innerHTML = sum;
 $('#itemsJson').val(JSON.stringify(cart));
 {% if thank %}
-alert('Thanks for ordering with us. Your order is is {{id}}. Use it to track your order using our order tracker');
+alert('Thanks for ordering with us. Your order is is {{id}}.Or Contact to the seller by using their contact number');
 localStorage.clear();
 document.location = "/shop";
 {% endif %}
