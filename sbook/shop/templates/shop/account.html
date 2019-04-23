@@ -1,0 +1,20 @@
+{% extends 'shop/basic.html' %}
+{% block body %}
+<div class="container jumbotron col-md-8">
+
+
+<p><b>Username:</b>{{ user.username }}</p>
+<p><b>Email id:</b>{{ user.email }}</p>
+
+<div class="container col-md-6 jumbotron">
+ <p><i><font size="+1"><b>Proudcts Which You have been Sold:</b></font></i></p>
+{% for prod in product %}
+<b>Product Name:</b>{{ prod }}<br><br>
+{% endfor %}
+</div></div>
+
+
+
+
+</div>
+{% endblock %}
