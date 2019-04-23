@@ -1,16 +1,17 @@
 {% extends 'shop/basic.html' %}
 {% block title %}Sell Your Product -Enter Details of your products{% endblock %}
 {% block body %}
-<div class="container">
-    <div class="col my-4">
+<div class="container-fluid">
+    <div class="col-md-6"style="margin-left:300px;margin-top:20px">
         <h2>Sell Your Product Here</h2>
-        <h3> Enter Details:</h3>
-        <form method="POST"enctype="multipart/form-data">
+        <h3> Enter Details:<b><h6>All fields are mandatory</h6></b></h3>
+        <form method="POST"enctype="multipart/form-data" style="margin-top:20px">
           {% csrf_token %}
           <div class="form-group">
-          <label for="inputname">Book Name</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="">
-                    <label for="category">Category</label><br>
+            <input type="hidden" name="" value="">
+          <label for="inputname">Book Name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Computer Network (CN)"required>
+                    <label for="category">Category:</label><br>
                     <select name="category">
                     <option value="First Year CSE" id="category"name="category">First Year CSE/IT</option>
                     <option value="First Year CIVIL"id="category"name="category">First Year CIVIL ENGINEERING</option>
@@ -36,14 +37,28 @@
 
    </select>
                 </div>
-            <div class="form-group"enctype="multipart/form-data">
-                <label for="price">Price</label>
-                <input type="text" class="form-control" id="price" name="price" placeholder="100">
+            <div class="form-group"enctype="multipart/form-data" >
+              <label for="price1">MRP:</label><br>
+              <input type="text" id="price1" name="price1" placeholder="Enter market price"><br>
+                <label for="price">Price:</label><br>
+                <input type="text" id="price" name="price" placeholder="100"><br>
+                <label for="phone">Contact No:</label><br>
+                <input type="text" name="phone" value="" placeholder="Enter Mobile No"><br>
                 <label for="desc">Description</label>
-                <input type="text" class="form-control" id="desc" name="desc" placeholder="Write few things about books">
-                <label for="image">Upload Image</label>
-                <input type="file"id="imag" name="imag">
-            <button type="submit" class="btn btn-primary">Sell</button>
+                <input type="text" class="form-control" id="desc" name="desc" placeholder="Write few things about books" required>
+                <label for="image">Upload Image</label><br>
+                <input type="file"id="imag" name="imag" required><br><br>
+            <button type="submit" class="btn btn-success" style="margin-left:200px"style="width:10">Sell</button>
+            <button type="reset" name="" value="Reset" class="btn btn-primary"style="margin-left:10px">Reset</button>
     </div>
     </div>
+    </div>
+{% endblock %}
+{% block js %}
+<script>
+  {% if sel %}
+  alert('Thanks for selling your product! You will paid soon!');
+  document.location="/shop";
+  {% endif %}
+</script>
 {% endblock %}
