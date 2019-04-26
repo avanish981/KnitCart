@@ -14,6 +14,8 @@
 ![Screenshot from 2019-04-26 23-48-02](https://user-images.githubusercontent.com/41297065/56828550-286edc00-687f-11e9-8835-e8bbefc596c3.png)
 ## article detail
 ![Screenshot from 2019-04-26 23-48-07](https://user-images.githubusercontent.com/41297065/56828570-3290da80-687f-11e9-89ba-7d4b6b94299e.png)
+![Screenshot from 2019-04-27 00-40-46](https://user-images.githubusercontent.com/41297065/56830788-ecd71080-6884-11e9-90d3-0eba05423178.png)
+
 ## selling product
 ![Screenshot from 2019-04-27 00-06-13](https://user-images.githubusercontent.com/41297065/56828928-0d509c00-6880-11e9-8b2b-e069df05b67b.png)
 ## about the website
