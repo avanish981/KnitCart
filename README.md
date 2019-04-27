@@ -19,7 +19,7 @@
 ## selling product
 ![Screenshot from 2019-04-27 00-06-13](https://user-images.githubusercontent.com/41297065/56828928-0d509c00-6880-11e9-8b2b-e069df05b67b.png)
 ## about the website
-![Screenshot from 2019-04-26 23-48-11](https://user-images.githubusercontent.com/41297065/56828591-3e7c9c80-687f-11e9-9ad5-98627b8cc03c.png)
+![Screenshot from 2019-04-27 14-50-32](https://user-images.githubusercontent.com/41297065/56847679-bf797980-68fb-11e9-9baf-371902b16746.png)
 ## for purchasing the product check the product detail and contact to given number, or do comment...
 ![Screenshot from 2019-04-26 23-52-54](https://user-images.githubusercontent.com/41297065/56828603-48060480-687f-11e9-8ce3-43f7525af174.png)
 ## user account detail
